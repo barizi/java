@@ -1,1 +1,222 @@
-partage de code
+import java.awt.Color;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JToggleButton;
+import javax.swing.Spring;
+import javax.swing.SpringLayout;
+public class fent extends JFrame{
+ 
+  
+private JMenuBar menuBar = new JMenuBar();
+private JMenu test1 = new JMenu("Edition");
+private JMenu test2 = new JMenu("outils");
+private JMenu test3 = new JMenu("aide");
+
+private JMenuItem item1 = new JMenuItem("ouvrire");
+private JMenuItem item2 = new JMenuItem("fermer");
+private JMenuItem item3 = new JMenuItem("fermerouvrire");
+
+
+private JTabbedPane onglet;	
+
+
+private JList list; 
+private DefaultListModel liste = new DefaultListModel();
+
+
+
+
+private JLabel jlab = new JLabel("Panel essai");
+
+
+private JLabel jlab2 = new JLabel("pAenel");
+
+private JLabel jcombo = new JLabel("   ");
+private SpringLayout layout = new SpringLayout();
+
+
+
+JButton j = new JButton("Raccrocher");
+private JLabel jj = new JLabel("   ");
+JButton j1 = new JButton("Allo");
+private JLabel jj1 = new JLabel("   ");
+JToggleButton j2 = new JToggleButton("Details");
+private JLabel txt = new JLabel("Etat Hors Connexion");
+
+class ItemState implements ItemListener {
+	 
+	public void itemStateChanged(ItemEvent e) {
+		 System.out.println("événement sélectionné de la combobox :" +e.getItem());
+		
+	}
+	 
+}
+ 
+ 
+ public fent(){
+	 
+	 
+	 this.setSize(400,200);
+	 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	 this.setLocationRelativeTo(null);
+	 String[] tab = {"Option1", "Option2", "Option3", "Option4"};
+	 
+	 JComboBox combo = new JComboBox(tab);
+	 combo.addItemListener(new ItemState());
+	 combo.setPreferredSize(new Dimension(57,1));
+
+		 
+	
+
+	
+	
+	 
+	 
+	
+	 
+	 
+	 
+	 setLayout(layout);
+	 
+	 add(j);
+	 add(j1);
+	 add(j2);
+	 
+	 
+	 
+	   
+	 
+	 
+	 //  Spring ressort = Spring.constant(0, 500, 500);     
+
+	   //layout.putConstraint(SpringLayout.WEST, j, ressort, SpringLayout.WEST, getContentPane());
+	   //layout.putConstraint(SpringLayout.WEST, j1, ressort, SpringLayout.EAST, j2);
+	   //layout.putConstraint(SpringLayout.WEST, j2, ressort, SpringLayout.EAST,j1);
+	   //layout.putConstraint(SpringLayout.EAST, getContentPane(), ressort, SpringLayout.EAST, j1);
+	   
+	   Box b1 = Box.createHorizontalBox();
+	   b1.add(Box.createHorizontalStrut(20));
+	
+	   b1.add(j);
+	   
+	   b1.add(jj);
+	   
+	   b1.add(combo);
+	   combo.setEditable(true);
+	   
+	   b1.add(jcombo);
+		 b1.add(j1);
+		 b1.add(jj1);
+		 
+		 
+		 b1.add(j2);
+		 	 
+	 
+	 Box b3 = Box.createHorizontalBox();
+	 
+	 b3.add(txt);
+	
+	 
+	 
+	 this.getContentPane().setLayout(new BorderLayout());
+	 this.getContentPane().add(b1, BorderLayout.NORTH);
+	 this.getContentPane().add(b3, BorderLayout.SOUTH);
+	 
+	 
+	 
+	 
+	 
+	
+     
+	
+	
+	 
+	
+	 
+	 onglet = new JTabbedPane();
+	 
+   
+	 
+	 JPanel jpane = new JPanel();
+     
+	
+     jpane.setLayout(new GridLayout(1,0));
+     
+     liste.addElement("Personne 1");
+     liste.addElement("Persone 2");
+     liste.addElement("Personne 3");
+     
+     list = new JList(liste);
+     list.setSelectedIndex(1);
+   
+     
+     
+     onglet.addTab("onglet1",  new JScrollPane(list));
+     
+   
+     
+     
+     JPanel jpane2 = new JPanel();
+     
+     onglet.addTab("onglet2",null,jpane2);
+ 
+     jpane2.add(jlab2);
+ 
+     
+     this.setTitle("phone");
+     this.getContentPane().add(onglet);
+     
+
+     
+
+	 
+	 
+
+	 
+	 
+	 this.test1.add(item1);
+	 this.test2.add(item2);
+	 this.test3.add(item3);
+
+	
+	 
+	 this.menuBar.add(test1);
+	 this.menuBar.add(test2);
+	 this.menuBar.add(test3);
+	 this.setJMenuBar(menuBar);
+	 
+	 this.setVisible(true);
+ 
+}
+ 
+public static void main(String[] args) {
+	 
+	 
+	 fent tp = new fent();
+	 
+ }
+}
