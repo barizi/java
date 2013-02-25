@@ -1,0 +1,100 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JToggleButton;
+
+
+public class FrameF extends JFrame{
+  
+	private JMenuBar menuBar = new JMenuBar();
+	private JMenu menu1 = new JMenu("Fichier");
+	private JMenu menuxz = new JMenu ("Ouvrire");
+	private JMenu menu2 = new JMenu ("Ouvrire");
+	private JMenu menu3 = new JMenu("Edition");
+	
+	private JMenuItem it1 = new JMenuItem("Ouvrire");
+	private JMenuItem it2 = new JMenuItem("Fermer");
+	private JMenuItem it3 = new JMenuItem("Lancer");
+	private JMenuItem it4 = new JMenuItem("Arreter");
+	
+	private JCheckBoxMenuItem jcm1 = new JCheckBoxMenuItem("Choix1");
+	private JCheckBoxMenuItem jcm2 = new JCheckBoxMenuItem("choix2");
+	
+	private JRadioButtonMenuItem jrm1 = new JRadioButtonMenuItem("radio1");
+	private JRadioButtonMenuItem jrm2 = new JRadioButtonMenuItem ("radio2");
+	
+	private JPanel pan = new JPanel();
+	
+	private JButton bouton = new JButton("Raccrocher");
+    private JButton bouton2 = new JButton("Allo");
+    private JToggleButton bouton3 = new JToggleButton("Details");
+	
+	
+	
+	
+	
+	public FrameF(){
+		this.setTitle("FphTel");
+		this.setSize(400,500);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		this.menu1.add(it1);
+		
+		this.menuxz.add(jcm1);
+		this.menuxz.add(jcm2);
+
+		this.menuxz.addSeparator();
+		
+		
+		ButtonGroup bg = new ButtonGroup();
+		
+		bg.add(jrm1);
+		bg.add(jrm2);
+		
+		jrm1.setSelected(true);
+		
+		
+		this.menuxz.add(jrm1);
+		this.menuxz.add(jrm2);
+		
+		this.menu1.add(this.menuxz);
+		
+		this.menu1.addSeparator();
+		
+		it2.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0){
+				
+				System.exit(0);
+			}
+			
+			
+		});
+		this.menu1.add(it2);
+		this.menu2.add(it3);
+		this.menu3.add(it4);
+		
+		this.menuBar.add(menu1);
+		this.menuBar.add(menu2);
+		this.menuBar.add(menu3);
+		this.setJMenuBar(menuBar);
+		
+		
+		
+		
+
+		
+		
+		this.setVisible(true);
+	}
+
+}
